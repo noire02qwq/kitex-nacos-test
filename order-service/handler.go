@@ -11,6 +11,7 @@ import (
 	"kitex-nacos-test/kitex_gen/order"
 	"kitex-nacos-test/kitex_gen/user"
 	"kitex-nacos-test/kitex_gen/user/userservice"
+	"github.com/cloudwego/kitex/client"
 )
 
 // OrderServiceImpl implements the last service interface defined in the IDL.
@@ -26,7 +27,7 @@ func (s *OrderServiceImpl) CreateOrder(ctx context.Context, req *order.CreateOrd
 		log.Fatal(err)
 	}
 
-	client, err := userservice.NewClient("UserService", userservice.WithResolver(r))
+	client, err := userservice.NewClient("UserService", client.WithResolver(r))
 	if err != nil {
 		log.Fatal(err)
 	}
