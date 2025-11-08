@@ -58,7 +58,7 @@ go run .
 ### 3. 访问 Nacos 控制台
 
 打开浏览器访问 Nacos 控制台：
-- 地址：http://localhost:8848/nacos
+- 地址：http://localhost:8080/nacos
 - 用户名：nacos
 - 密码：nacos
 
@@ -93,6 +93,6 @@ curl -X POST http://localhost:9002/order/create -d '{"userID": 1, "product": "�
 
 Nacos 配置在 [common/nacos.go](common/nacos.go) 文件中，默认配置如下：
 - Nacos 地址：127.0.0.1
-- Nacos 端口：8848
+- Nacos 端口：8080
 
 如需修改，请相应调整该文件中的配置。

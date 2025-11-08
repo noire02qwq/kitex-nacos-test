@@ -3,7 +3,10 @@ package common
 import (
 	"fmt"
 
-	"github.com/kitex-contrib/registry-nacos/nacos"
+	"github.com/cloudwego/kitex/pkg/discovery"
+	"github.com/cloudwego/kitex/pkg/registry"
+	reg "github.com/kitex-contrib/registry-nacos/registry"
+	res "github.com/kitex-contrib/registry-nacos/resolver"
 	"github.com/nacos-group/nacos-sdk-go/clients"
 	"github.com/nacos-group/nacos-sdk-go/common/constant"
 	"github.com/nacos-group/nacos-sdk-go/vo"
@@ -11,11 +14,11 @@ import (
 
 const (
 	NacosAddr = "127.0.0.1"
-	NacosPort = 8848
+	NacosPort = 8080
 )
 
 // NewNacosRegistry creates a nacos registry
-func NewNacosRegistry() (*nacos.Registry, error) {
+func NewNacosRegistry() (registry.Registry, error) {
 	sc := []constant.ServerConfig{
 		*constant.NewServerConfig(NacosAddr, uint64(NacosPort)),
 	}
@@ -39,12 +42,12 @@ func NewNacosRegistry() (*nacos.Registry, error) {
 		return nil, fmt.Errorf("new nacos client failed: %v", err)
 	}
 
-	r := nacos.NewNacosRegistry(cli)
+	r := reg.NewNacosRegistry(cli)
 	return r, nil
 }
 
 // NewNacosResolver creates a nacos resolver
-func NewNacosResolver() (*nacos.Resolver, error) {
+func NewNacosResolver() (discovery.Resolver, error) {
 	sc := []constant.ServerConfig{
 		*constant.NewServerConfig(NacosAddr, uint64(NacosPort)),
 	}
@@ -68,6 +71,6 @@ func NewNacosResolver() (*nacos.Resolver, error) {
 		return nil, fmt.Errorf("new nacos client failed: %v", err)
 	}
 
-	r := nacos.NewNacosResolver(cli)
+	r := res.NewNacosResolver(cli)
 	return r, nil
 }
