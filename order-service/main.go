@@ -6,6 +6,7 @@ import (
 
 	"kitex-nacos-test/common"
 	"kitex-nacos-test/kitex_gen/order/orderservice"
+	"github.com/cloudwego/kitex/pkg/rpcinfo"
 	"github.com/cloudwego/kitex/server"
 )
 
@@ -22,10 +23,16 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// Create server basic info with service name
+	serverBasicInfo := &rpcinfo.EndpointBasicInfo{
+		ServiceName: "OrderService",
+	}
+
 	svr := orderservice.NewServer(
 		new(OrderServiceImpl),
 		server.WithRegistry(r),
 		server.WithServiceAddr(addr),
+		server.WithServerBasicInfo(serverBasicInfo),
 	)
 
 	err = svr.Run()

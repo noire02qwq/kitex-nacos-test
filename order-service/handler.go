@@ -11,6 +11,7 @@ import (
 	"kitex-nacos-test/kitex_gen/order"
 	"kitex-nacos-test/kitex_gen/user"
 	"kitex-nacos-test/kitex_gen/user/userservice"
+
 	"github.com/cloudwego/kitex/client"
 )
 
