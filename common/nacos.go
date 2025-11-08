@@ -30,6 +30,8 @@ func NewNacosRegistry() (registry.Registry, error) {
 		LogDir:              "/tmp/nacos/log",
 		CacheDir:            "/tmp/nacos/cache",
 		LogLevel:            "info",
+		Username:            "nacos",
+		Password:            "nacos",
 	}
 
 	cli, err := clients.NewNamingClient(
@@ -59,6 +61,8 @@ func NewNacosResolver() (discovery.Resolver, error) {
 		LogDir:              "/tmp/nacos/log",
 		CacheDir:            "/tmp/nacos/cache",
 		LogLevel:            "info",
+		Username:            "nacos",
+		Password:            "nacos",
 	}
 
 	cli, err := clients.NewNamingClient(

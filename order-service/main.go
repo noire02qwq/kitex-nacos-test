@@ -6,6 +6,7 @@ import (
 
 	"kitex-nacos-test/common"
 	"kitex-nacos-test/kitex_gen/order/orderservice"
+
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
 	"github.com/cloudwego/kitex/server"
 )
