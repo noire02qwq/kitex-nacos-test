@@ -14,7 +14,7 @@ import (
 
 const (
 	NacosAddr = "127.0.0.1"
-	NacosPort = 8080
+	NacosPort = 8848
 )
 
 // NewNacosRegistry creates a nacos registry
